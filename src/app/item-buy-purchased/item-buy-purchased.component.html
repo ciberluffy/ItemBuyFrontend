@@ -1,0 +1,23 @@
+<form [formGroup]="formItemPurchased">
+  <mat-dialog-content>
+
+    <mat-form-field fxFlex="100%" fxFlex.gt-sm>
+      <input matInput type="number" placeholder="Min Value" formControlName="finalPieceValue">
+    </mat-form-field>
+
+    <br />
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="datepickerRefPurchased" placeholder="To Buy" formControlName="datePurchased">
+      <mat-datepicker-toggle matSuffix [for]="datepickerRefPurchased"></mat-datepicker-toggle>
+    </mat-form-field>
+    <mat-datepicker #datepickerRefPurchased></mat-datepicker>
+  </mat-dialog-content>
+
+  <br />
+
+  <div class="modalButtons">
+      <button class="button" type="button" mat-raised-button color="accent" (click)="save()">SAVE</button>
+      <button class="button-close" type="button" mat-raised-button color="primary" (click)="closeDialog()">CLOSE</button>
+  </div>
+</form>

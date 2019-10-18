@@ -1,0 +1,47 @@
+<div class="example-container">
+  <h2 class="list-header">
+    To Buy
+    <button (click)="addItemBuy()" color="primary" class="add-buy-button" mat-icon-button>
+      <mat-icon aria-hidden="false" aria-label="Example home icon">
+        add_shopping_cart
+      </mat-icon>
+    </button>
+  </h2>
+
+  <div
+    cdkDropList
+    #todoList="cdkDropList"
+    [cdkDropListData]="tobuy"
+    [cdkDropListConnectedTo]="[doneList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event,1)">
+    <div class="example-box" *ngFor="let item of tobuy" cdkDrag>
+      {{item.order}} - {{item.dateToBuy | date: 'dd/MM/yyyy'}} {{item.name}} 
+      <div class="spacer"></div> 
+      ${{item.minPieceValue}} - ${{item.maxPieceValue}} x {{item.count}} = ${{item.minTotalValue}} - ${{item.maxTotalValue}}
+    </div>
+  </div>
+
+  <h4>Total: {{toBuyAmount}}</h4>
+</div>
+
+<div class="example-container">
+  <h2 class="list-header">Purchased</h2>
+
+  <div
+    cdkDropList
+    #doneList="cdkDropList"
+    [cdkDropListData]="purchased"
+    [cdkDropListConnectedTo]="[todoList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event,2)"
+    style="margin-top:22px;">
+    <div class="example-box" *ngFor="let item of purchased" cdkDrag [cdkDragDisabled]="true">
+        {{item.order}} - {{item.datePurchased | date: 'dd/MM/yyyy'}} {{item.name}}
+        <div class="spacer"></div>
+        ${{item.finalPieceValue}} x {{item.count}} = ${{item.finalTotalValue}}
+    </div>
+  </div>
+
+  <h4>Total: {{purchasedAmount}}</h4>
+</div>
