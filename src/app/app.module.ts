@@ -42,7 +42,8 @@ import { ItemBuyPurchasedComponent } from './item-buy-purchased/item-buy-purchas
       AppComponent
    ],
    entryComponents: [
-      ItemBuyCreateUpdateComponent
+      ItemBuyCreateUpdateComponent,
+      ItemBuyPurchasedComponent
    ]
 })
 export class AppModule { }

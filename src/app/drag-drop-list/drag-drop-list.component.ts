@@ -46,7 +46,8 @@ export class DragDropListComponent implements OnInit {
 
     } else {
       this.dialogItemPurchased = this.dialog.open(ItemBuyPurchasedComponent, {
-        data: { id: event.container.data[event.currentIndex].id },
+        data: { id: event.previousContainer.data[event.previousIndex].id,
+                count: event.previousContainer.data[event.previousIndex].count },
         disableClose: true
       });
 
@@ -54,7 +55,8 @@ export class DragDropListComponent implements OnInit {
         if (itemPurchased) {
 
           this.itemBuyService.putUpdate(itemPurchased).subscribe((itemPurchasedUpdated: ItemBuy) => {
-            event.container.data[event.currentIndex] = itemPurchasedUpdated;
+            itemPurchasedUpdated.id = itemPurchasedUpdated._id;
+            event.previousContainer.data[event.previousIndex] = itemPurchasedUpdated;
 
             transferArrayItem(event.previousContainer.data,
               event.container.data,
