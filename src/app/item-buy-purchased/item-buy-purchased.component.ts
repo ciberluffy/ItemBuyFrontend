@@ -17,10 +17,13 @@ export class ItemBuyPurchasedComponent implements OnInit {
               private fb: FormBuilder) { }
 
   ngOnInit() {
+    console.log(this.defaults);
+
     this.formItemPurchased = this.fb.group({
       id: this.defaults.id || '',
       finalPieceValue: this.defaults.finalPieceValue || 0,
-      datePurchased: new Date().toISOString(),
+      count: this.defaults.count,
+      datePurchased: new FormControl({value: this.defaults.datePurchased || new Date().toISOString(), disabled: true}),
       dateLastUpdate: new Date().toISOString(),
       isPurchased: true,
     });
@@ -29,6 +32,7 @@ export class ItemBuyPurchasedComponent implements OnInit {
   save() {
     const itemBuy: ItemBuy = this.formItemPurchased.value;
     itemBuy.finalTotalValue = itemBuy.finalPieceValue * itemBuy.count;
+    itemBuy.datePurchased = itemBuy.dateLastUpdate;
     this.dialogRef.close(itemBuy);
   }
 

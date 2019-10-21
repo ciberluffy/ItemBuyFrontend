@@ -2,16 +2,16 @@
   <mat-dialog-content>
 
     <mat-form-field fxFlex="100%" fxFlex.gt-sm>
-      <input matInput type="number" placeholder="Min Value" formControlName="finalPieceValue">
+      <input matInput type="number" placeholder="Value" formControlName="finalPieceValue">
     </mat-form-field>
 
     <br />
 
     <mat-form-field>
-      <input matInput [matDatepicker]="datepickerRefPurchased" placeholder="To Buy" formControlName="datePurchased">
-      <mat-datepicker-toggle matSuffix [for]="datepickerRefPurchased"></mat-datepicker-toggle>
+      <input matInput [matDatepicker]="datepickerRefToPurchase" placeholder="To Purchase" formControlName="datePurchased">
+      <mat-datepicker-toggle matSuffix [for]="datepickerRefToPurchase"></mat-datepicker-toggle>
     </mat-form-field>
-    <mat-datepicker #datepickerRefPurchased></mat-datepicker>
+    <mat-datepicker #datepickerRefToPurchase></mat-datepicker>
   </mat-dialog-content>
 
   <br />
