@@ -6,12 +6,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { MatDialogModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+import { MatDialogModule, MatIconModule, MatButtonModule,
+         MatFormFieldModule, MatInputModule, MatDatepickerModule,
+         MatNativeDateModule, MatSelectModule } from '@angular/material';
 
 import { DragDropListComponent } from './drag-drop-list/drag-drop-list.component';
 import { ItemBuyCreateUpdateComponent } from './item-buy-create-update/item-buy-create-update.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ItemBuyPurchasedComponent } from './item-buy-purchased/item-buy-purchased.component';
+
+import { EllipsisPipe } from './pipes/ellipsis.pipe';
 
 
 @NgModule({
@@ -19,7 +23,8 @@ import { ItemBuyPurchasedComponent } from './item-buy-purchased/item-buy-purchas
       AppComponent,
       DragDropListComponent,
       ItemBuyCreateUpdateComponent,
-      ItemBuyPurchasedComponent
+      ItemBuyPurchasedComponent,
+      EllipsisPipe
    ],
    imports: [
       BrowserModule,
@@ -35,7 +40,8 @@ import { ItemBuyPurchasedComponent } from './item-buy-purchased/item-buy-purchas
       FormsModule,
       ReactiveFormsModule,
       MatDatepickerModule,
-      MatNativeDateModule
+      MatNativeDateModule,
+      MatSelectModule
    ],
    providers: [],
    bootstrap: [

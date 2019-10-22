@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { MatDialogRef, MatDialog } from '@angular/material';
+import { MatDialogRef, MatDialog, MatOptionSelectionChange } from '@angular/material';
 import * as _ from 'lodash';
 
 import { ItemBuy } from '../models/item-buy';
@@ -129,6 +129,10 @@ export class DragDropListComponent implements OnInit {
               : '$' + amountMin.toString());
   }
 
+  rangeToBuy(item: ItemBuy): string {
+    return `\$${item.minPieceValue} - \$${item.maxPieceValue} x ${item.count} = \$${item.minTotalValue} - \$${item.maxTotalValue}`;
+  }
+
   addItemBuy() {
     this.dialogItemBuyCURef = this.dialog.open(ItemBuyCreateUpdateComponent, {
       data: {},
@@ -145,6 +149,13 @@ export class DragDropListComponent implements OnInit {
         });
       }
     });
+  }
+
+  updateItem(event: MatOptionSelectionChange, item: ItemBuy) {
+    if (event.isUserInput) {
+      alert('here');
+      console.log(item);
+    }
   }
 
   purchaseItemBuy() {

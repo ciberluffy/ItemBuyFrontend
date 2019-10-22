@@ -16,9 +16,14 @@
     class="example-list"
     (cdkDropListDropped)="drop($event,1)">
     <div class="example-box" *ngFor="let item of tobuy" cdkDrag>
-      {{item.order}} - {{item.dateToBuy | date: 'dd/MM/yyyy'}} {{item.name}} 
-      <div class="spacer"></div> 
-      ${{item.minPieceValue}} - ${{item.maxPieceValue}} x {{item.count}} = ${{item.minTotalValue}} - ${{item.maxTotalValue}}
+      {{item.order}} - {{item.dateToBuy | date: 'dd/MM/yyyy'}} {{item.name | ellipsis:20}} 
+      <div class="spacer"></div>
+      <div>
+        {{ rangeToBuy(item) }}
+        <mat-select class="mat-select">
+          <mat-option (onSelectionChange)="updateItem($event, item)">Update</mat-option>
+        </mat-select>
+      </div>
     </div>
   </div>
 

@@ -60,6 +60,34 @@
   margin-bottom: 10px;
  }
 
+ .mat-select {
+   width: 20px;
+   border: 1px solid transparent;
+   border-radius: 50%;
+ }
+
+ .mat-select:hover{
+  box-shadow: 1px 0px 1px 0px;
+ }
+
+::ng-deep .mat-select-arrow-wrapper {
+  width: 20px;
+  vertical-align: top !important;
+  padding-top: 4px !important;
+}
+
+::ng-deep .mat-select-arrow {
+  width: 0;
+  height: 0;
+  border-left: 0px solid transparent !important; 
+  border-right: 2px solid transparent !important;
+  border-top: 2px solid !important;
+  margin: 0 4px;
+  border-radius: 50%;
+  background-color: black;
+  box-shadow: 0px 4px 0px black, 0px 8px 0px black;
+}
+
  /*.mat-icon-head {
    border-radius: 50%;
    cursor: pointer;
