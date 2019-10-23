@@ -14,15 +14,29 @@
     [cdkDropListData]="tobuy"
     [cdkDropListConnectedTo]="[doneList]"
     class="example-list"
-    (cdkDropListDropped)="drop($event,1)">
+    (cdkDropListDropped)="drop($event,1)"
+    style="margin-top:15px;">
     <div class="example-box" *ngFor="let item of tobuy" cdkDrag>
       {{item.order}} - {{item.dateToBuy | date: 'dd/MM/yyyy'}} {{item.name | ellipsis:20}} 
       <div class="spacer"></div>
-      <div>
-        {{ rangeToBuy(item) }}
-        <mat-select class="mat-select">
-          <mat-option (onSelectionChange)="updateItem($event, item)">Update</mat-option>
-        </mat-select>
+      <div style="display: flex">
+        <div style="margin: auto 10px;">{{ rangeToBuy(item) }}</div>
+          
+        <button type="button" mat-icon-button [matMenuTriggerFor]="actionsMenu" (click)="$event.stopPropagation()">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+
+        <mat-menu #actionsMenu="matMenu" yPosition="below" xPosition="after">
+          <button (click)="updateItem(item)" mat-menu-item>
+            <span>Update</span>
+          </button>
+          <!-- <button (click)="updateOwner(row)" mat-menu-item>
+            <span>B</span>
+          </button>
+          <button (click)="deleteDialog(row)" mat-menu-item>
+            <span>C</span>
+          </button> -->
+        </mat-menu>
       </div>
     </div>
   </div>
@@ -40,7 +54,7 @@
     [cdkDropListConnectedTo]="[todoList]"
     class="example-list"
     (cdkDropListDropped)="drop($event,2)"
-    style="margin-top:22px;">
+    style="margin-top:15px;">
     <div class="example-box" *ngFor="let item of purchased" cdkDrag [cdkDragDisabled]="true">
         {{item.order}} - {{item.datePurchased | date: 'dd/MM/yyyy'}} {{item.name}}
         <div class="spacer"></div>

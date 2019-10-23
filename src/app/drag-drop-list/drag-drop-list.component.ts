@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { MatDialogRef, MatDialog, MatOptionSelectionChange } from '@angular/material';
 import * as _ from 'lodash';
+declare var jQuery: any;
 
 import { ItemBuy } from '../models/item-buy';
 
@@ -151,11 +152,9 @@ export class DragDropListComponent implements OnInit {
     });
   }
 
-  updateItem(event: MatOptionSelectionChange, item: ItemBuy) {
-    if (event.isUserInput) {
-      alert('here');
-      console.log(item);
-    }
+  updateItem(item: ItemBuy) {
+    alert('here');
+    console.log(item);
   }
 
   purchaseItemBuy() {
@@ -176,3 +175,16 @@ export class DragDropListComponent implements OnInit {
     });
   }
 }
+
+/*
+($) => {
+  $(document).ready(() => {
+    $('div.threeDotsContainer').click(() => {
+      $(this).find('div.Options').show();
+      console.log($(this).find('.Options'));
+    }).mouseleave(() => {
+      // $(this).find('div.Options').hidden();
+    });
+  });
+})(jQuery);
+*/

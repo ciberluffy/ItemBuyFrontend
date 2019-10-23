@@ -8,7 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatDialogModule, MatIconModule, MatButtonModule,
          MatFormFieldModule, MatInputModule, MatDatepickerModule,
-         MatNativeDateModule, MatSelectModule } from '@angular/material';
+         MatNativeDateModule, MatSelectModule, MatMenuModule,
+         MatTableModule } from '@angular/material';
 
 import { DragDropListComponent } from './drag-drop-list/drag-drop-list.component';
 import { ItemBuyCreateUpdateComponent } from './item-buy-create-update/item-buy-create-update.component';
@@ -41,7 +42,9 @@ import { EllipsisPipe } from './pipes/ellipsis.pipe';
       ReactiveFormsModule,
       MatDatepickerModule,
       MatNativeDateModule,
-      MatSelectModule
+      MatSelectModule,
+      MatMenuModule,
+      MatTableModule
    ],
    providers: [],
    bootstrap: [

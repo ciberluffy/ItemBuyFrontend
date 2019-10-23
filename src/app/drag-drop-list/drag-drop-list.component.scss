@@ -60,45 +60,16 @@
   margin-bottom: 10px;
  }
 
- .mat-select {
-   width: 20px;
-   border: 1px solid transparent;
-   border-radius: 50%;
+ .menuOptionBtn {
+   height: 20%;
  }
-
- .mat-select:hover{
-  box-shadow: 1px 0px 1px 0px;
- }
-
-::ng-deep .mat-select-arrow-wrapper {
-  width: 20px;
-  vertical-align: top !important;
-  padding-top: 4px !important;
-}
-
-::ng-deep .mat-select-arrow {
-  width: 0;
-  height: 0;
-  border-left: 0px solid transparent !important; 
-  border-right: 2px solid transparent !important;
-  border-top: 2px solid !important;
-  margin: 0 4px;
-  border-radius: 50%;
-  background-color: black;
-  box-shadow: 0px 4px 0px black, 0px 8px 0px black;
-}
-
- /*.mat-icon-head {
-   border-radius: 50%;
-   cursor: pointer;
- }*/
-
-//  ::ng-deep .mat-icon{
-//   height:30px !important;
-//   width:30px !important;
-//   font-size:20px !important;
-// }
 
 ::ng-deep app-drag-drop-list {
   width: 120%;
+}
+
+::ng-deep .mat-icon-button {
+   height: 24px !important;
+   width: 24px !important;
+   line-height: 24px !important;
 }
